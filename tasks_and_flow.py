@@ -4,12 +4,12 @@ from typing import Coroutine, cast
 
 import aiofiles
 import httpx
-from prefect.tasks import task_input_hash
 from prefect import task, flow, get_run_logger
+from prefect.tasks import task_input_hash
+from pydantic import FilePath
+
 from config import config
 from schema import BatchApplyResponse, ExtractResult
-from pydantic import FilePath
-from config import config
 
 
 def mineru_task_cache_key(context, parameters):
